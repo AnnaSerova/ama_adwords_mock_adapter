@@ -25,8 +25,8 @@ view: customer_adapter {
   derived_table: {
     sql:
         SELECT
-          CURRENT_DATE() as _DATA_DATE,
-          CURRENT_DATE() as _LATEST_DATE,
+          CURRENT_DATE as _DATA_DATE,
+          CURRENT_DATE as _LATEST_DATE,
           'NA' as ExternalCustomerId,
         'NA' as AccountCurrencyCode,
         'NA' as AccountDescriptiveName,

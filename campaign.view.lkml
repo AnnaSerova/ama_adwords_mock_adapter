@@ -35,8 +35,8 @@ view: campaign_adapter {
   derived_table: {
     sql:
         SELECT
-          CURRENT_DATE() as _DATA_DATE,
-          CURRENT_DATE() as _LATEST_DATE,
+          CURRENT_DATE as _DATA_DATE,
+          CURRENT_DATE as _LATEST_DATE,
           'NA' as ExternalCustomerId,
           'NA' as AdvertisingChannelSubType,
           'NA' as AdvertisingChannelType,
@@ -53,7 +53,7 @@ view: campaign_adapter {
           'NA' as CampaignStatus,
           0 as CampaignTabletBidModifier,
           'NA' as CampaignTrialType,
-          CURRENT_DATE() as EndDate,
+          CURRENT_DATE as EndDate,
           false as EnhancedCpcEnabled,
           false as EnhancedCpvEnabled,
           false as IsBudgetExplicitlyShared,
@@ -61,7 +61,7 @@ view: campaign_adapter {
           'NA' as Labels,
           'NA' as Period,
           'NA' as ServingStatus,
-          CURRENT_DATE() as StartDate,
+          CURRENT_DATE as StartDate,
           'NA' as TrackingUrlTemplate,
           'NA' as UrlCustomParameters
         ;;

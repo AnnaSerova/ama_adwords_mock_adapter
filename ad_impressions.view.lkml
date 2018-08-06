@@ -77,8 +77,8 @@ view: ad_impressions_adapter {
   derived_table: {
     sql:
         SELECT
-          CURRENT_DATE() as _DATA_DATE,
-          CURRENT_DATE() as _LATEST_DATE,
+          CURRENT_DATE as _DATA_DATE,
+          CURRENT_DATE as _LATEST_DATE,
           'NA' as ExternalCustomerId,
           0 as AveragePosition,
           0 as ActiveViewImpressions,
@@ -226,8 +226,8 @@ view: ad_impressions_hour_adapter {
   derived_table: {
     sql:
         SELECT
-          CURRENT_DATE() as _DATA_DATE,
-          CURRENT_DATE() as _LATEST_DATE,
+          CURRENT_DATE as _DATA_DATE,
+          CURRENT_DATE as _LATEST_DATE,
           'NA' as ExternalCustomerId,
           0 as AveragePosition,
           0 as ActiveViewImpressions,
@@ -267,8 +267,8 @@ view: ad_impressions_campaign_adapter {
   derived_table: {
     sql:
       SELECT
-        CURRENT_DATE() as _DATA_DATE,
-        CURRENT_DATE() as _LATEST_DATE,
+        CURRENT_DATE as _DATA_DATE,
+        CURRENT_DATE as _LATEST_DATE,
         'NA' as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
@@ -324,8 +324,8 @@ view: ad_impressions_campaign_hour_adapter {
   derived_table: {
     sql:
       SELECT
-        CURRENT_DATE() as _DATA_DATE,
-        CURRENT_DATE() as _LATEST_DATE,
+        CURRENT_DATE as _DATA_DATE,
+        CURRENT_DATE as _LATEST_DATE,
         'NA' as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
@@ -367,8 +367,8 @@ view: ad_impressions_ad_group_adapter {
   derived_table: {
     sql:
       SELECT
-        CURRENT_DATE() as _DATA_DATE,
-        CURRENT_DATE() as _LATEST_DATE,
+        CURRENT_DATE as _DATA_DATE,
+        CURRENT_DATE as _LATEST_DATE,
         'NA' as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
@@ -424,8 +424,8 @@ view: ad_impressions_ad_group_hour_adapter {
   derived_table: {
     sql:
       SELECT
-        CURRENT_DATE() as _DATA_DATE,
-        CURRENT_DATE() as _LATEST_DATE,
+        CURRENT_DATE as _DATA_DATE,
+        CURRENT_DATE as _LATEST_DATE,
         'NA' as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
@@ -467,8 +467,8 @@ view: ad_impressions_keyword_adapter {
   derived_table: {
     sql:
       SELECT
-        CURRENT_DATE() as _DATA_DATE,
-        CURRENT_DATE() as _LATEST_DATE,
+        CURRENT_DATE as _DATA_DATE,
+        CURRENT_DATE as _LATEST_DATE,
         'NA' as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
@@ -518,8 +518,8 @@ view: ad_impressions_ad_adapter {
   derived_table: {
     sql:
       SELECT
-        CURRENT_DATE() as _DATA_DATE,
-        CURRENT_DATE() as _LATEST_DATE,
+        CURRENT_DATE as _DATA_DATE,
+        CURRENT_DATE as _LATEST_DATE,
         'NA' as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
@@ -669,8 +669,8 @@ view: ad_impressions_video_adapter {
   derived_table: {
     sql:
       SELECT
-        CURRENT_DATE() as _DATA_DATE,
-        CURRENT_DATE() as _LATEST_DATE,
+        CURRENT_DATE as _DATA_DATE,
+        CURRENT_DATE as _LATEST_DATE,
         'NA' as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
@@ -876,8 +876,8 @@ view: ad_impressions_geo_adapter {
   derived_table: {
     sql:
       SELECT
-        CURRENT_DATE() as _DATA_DATE,
-        CURRENT_DATE() as _LATEST_DATE,
+        CURRENT_DATE as _DATA_DATE,
+        CURRENT_DATE as _LATEST_DATE,
         'NA' as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,

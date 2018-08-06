@@ -43,8 +43,8 @@ view: ad_group_adapter {
   derived_table: {
     sql:
       SELECT
-        CURRENT_DATE() as _DATA_DATE,
-        CURRENT_DATE() as _LATEST_DATE,
+        CURRENT_DATE as _DATA_DATE,
+        CURRENT_DATE as _LATEST_DATE,
         'NA' as ExternalCustomerId,
         0 as AdGroupDesktopBidModifier,
         'NA' as AdGroupId,
