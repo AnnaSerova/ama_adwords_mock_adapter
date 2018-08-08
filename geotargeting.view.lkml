@@ -2,13 +2,13 @@ view: geotargeting {
   derived_table: {
     sql:
         SELECT
-          'NA' as Canonical_Name,
-          'NA' as Country_Code,
-          'NA' as Criteria_ID,
-          'NA' as Name,
-          'NA' as Parent_ID,
-          'NA' as Status,
-          'NA' as Target_Type
+          CAST('NA' as TEXT) as Canonical_Name,
+          CAST('NA' as TEXT) as Country_Code,
+          CAST('NA' as TEXT) as Criteria_ID,
+          CAST('NA' as TEXT) as Name,
+          CAST('NA' as TEXT) as Parent_ID,
+          CAST('NA' as TEXT) as Status,
+          CAST('NA' as TEXT) as Target_Type
       ;;
   }
 
@@ -50,7 +50,7 @@ view: geotargeting {
 
   dimension: is_us_state {
     type: yesno
-    sql: ${country_code} = "US" AND ${target_type} = "State" ;;
+    sql: ${country_code} = 'US' AND ${target_type} = 'State' ;;
   }
 
   dimension: state {
@@ -61,7 +61,7 @@ view: geotargeting {
 
   dimension: is_us_postal_code {
     type: yesno
-    sql: ${country_code} = "US" AND ${target_type} = "Postal Code" ;;
+    sql: ${country_code} = 'US' AND ${target_type} = 'Postal Code' ;;
   }
 
   dimension: postal_code {

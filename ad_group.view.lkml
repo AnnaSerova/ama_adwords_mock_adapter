@@ -45,31 +45,31 @@ view: ad_group_adapter {
       SELECT
         CURRENT_DATE as _DATA_DATE,
         CURRENT_DATE as _LATEST_DATE,
-        'NA' as ExternalCustomerId,
+        CAST('NA' as TEXT) as ExternalCustomerId,
         0 as AdGroupDesktopBidModifier,
-        'NA' as AdGroupId,
+        CAST('NA' as TEXT) as AdGroupId,
         0 as AdGroupMobileBidModifier,
-        'NA' as AdGroupName,
-        'NA' as AdGroupStatus,
+        CAST('NA' as TEXT) as AdGroupName,
+        CAST('NA' as TEXT) as AdGroupStatus,
         0 as AdGroupTabletBidModifier,
-        'NA' as BidType,
-        'NA' as BiddingStrategyId,
-        'NA' as BiddingStrategyName,
-        'NA' as BiddingStrategySource,
-        'NA' as BiddingStrategyType,
-        'NA' as CampaignId,
-        'NA' as ContentBidCriterionTypeGroup,
+        CAST('NA' as TEXT) as BidType,
+        CAST('NA' as TEXT) as BiddingStrategyId,
+        CAST('NA' as TEXT) as BiddingStrategyName,
+        CAST('NA' as TEXT) as BiddingStrategySource,
+        CAST('NA' as TEXT) as BiddingStrategyType,
+        CAST('NA' as TEXT) as CampaignId,
+        CAST('NA' as TEXT) as ContentBidCriterionTypeGroup,
         0 as CpcBid,
         0 as CpmBid,
         0 as CpvBid,
         false as EnhancedCpcEnabled,
         false as EnhancedCpvEnabled,
-        'NA' as LabelIds,
-        'NA' as Labels,
+        CAST('NA' as TEXT) as LabelIds,
+        CAST('NA' as TEXT) as Labels,
         0 as TargetCpa,
-        'NA' as TargetCpaBidSource,
-        'NA' as TrackingUrlTemplate,
-        'NA' as UrlCustomParameters
+        CAST('NA' as TEXT) as TargetCpaBidSource,
+        CAST('NA' as TEXT) as TrackingUrlTemplate,
+        CAST('NA' as TEXT) as UrlCustomParameters
       ;;
   }
 
@@ -120,7 +120,7 @@ view: ad_group_adapter {
   dimension: status_active {
     hidden: yes
     type: yesno
-    sql: ${ad_group_status} = "ENABLED" ;;
+    sql: ${ad_group_status} = 'ENABLED' ;;
   }
 
   dimension: ad_group_tablet_bid_modifier {

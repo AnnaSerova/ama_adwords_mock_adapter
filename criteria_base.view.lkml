@@ -147,12 +147,12 @@ view: criteria_base {
   dimension: status {
     hidden: yes
     type: string
-    sql: REPLACE(${status_raw}, "Status_", "") ;;
+    sql: REPLACE(${status_raw}, 'Status_', '') ;;
   }
 
   dimension: status_active {
     type: yesno
-    sql: ${status} = "Active" ;;
+    sql: ${status} = 'Active' ;;
   }
 
   dimension: tracking_url_template {
@@ -170,10 +170,15 @@ view: criteria_base {
   dimension: key_base {
     hidden: yes
     sql: CONCAT(
-      CAST(${external_customer_id} AS STRING), "-",
-      CAST(${campaign_id} AS STRING), "-",
-      CAST(${ad_group_id} AS STRING), "-",
-      CAST(${criterion_id} AS STRING)) ;;
+        CONCAT(
+          CONCAT(CAST(${external_customer_id} as TEXT), '-'),
+          CONCAT(CAST(${campaign_id} as TEXT), '-')
+        ),
+        CONCAT(
+          CONCAT(CAST(${ad_group_id} as TEXT), '-'),
+          CAST(${criterion_id} as TEXT)
+        )
+      ) ;;
   }
 
   measure: count {

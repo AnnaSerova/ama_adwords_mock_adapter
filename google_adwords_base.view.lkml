@@ -19,7 +19,7 @@ view: google_adwords_base {
   }
 
   dimension: external_customer_id_string {
-    sql: CAST(${TABLE}.ExternalCustomerId as STRING) ;;
+    sql: CAST(${TABLE}.ExternalCustomerId as TEXT) ;;
     hidden: yes
   }
 

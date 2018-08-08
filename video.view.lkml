@@ -8,17 +8,17 @@ view: video_adapter {
         SELECT
           CURRENT_DATE as _DATA_DATE,
           CURRENT_DATE as _LATEST_DATE,
-          'NA' as ExternalCustomerId,
+          CAST('NA' as TEXT) as ExternalCustomerId,
           0 as AdGroupId,
           0 as CampaignId,
           0 as VideoDuration,
-          'NA' as VideoId,
-          'NA' as VideoTitle,
+          CAST('NA' as TEXT) as VideoId,
+          CAST('NA' as TEXT) as VideoTitle,
           0 as AdGroupId,
           0 as CampaignId,
           0 as VideoDuration,
-          'NA' as VideoId,
-          'NA' as VideoTitle
+          CAST('NA' as TEXT) as VideoId,
+          CAST('NA' as TEXT) as VideoTitle
       ;;
   }
 

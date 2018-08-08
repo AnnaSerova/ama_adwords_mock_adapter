@@ -37,33 +37,33 @@ view: campaign_adapter {
         SELECT
           CURRENT_DATE as _DATA_DATE,
           CURRENT_DATE as _LATEST_DATE,
-          'NA' as ExternalCustomerId,
-          'NA' as AdvertisingChannelSubType,
-          'NA' as AdvertisingChannelType,
+          CAST('NA' as TEXT) as ExternalCustomerId,
+          CAST('NA' as TEXT) as AdvertisingChannelSubType,
+          CAST('NA' as TEXT) as AdvertisingChannelType,
           0 as Amount,
-          'NA' as BidType,
-          'NA' as BiddingStrategyId,
-          'NA' as BiddingStrategyName,
-          'NA' as BiddingStrategyType,
-          'NA' as BudgetId,
+          CAST('NA' as TEXT) as BidType,
+          CAST('NA' as TEXT) as BiddingStrategyId,
+          CAST('NA' as TEXT) as BiddingStrategyName,
+          CAST('NA' as TEXT) as BiddingStrategyType,
+          CAST('NA' as TEXT) as BudgetId,
           0 as CampaignDesktopBidModifier,
-          'NA' as CampaignId,
+          CAST('NA' as TEXT) as CampaignId,
           0 as CampaignMobileBidModifier,
-          'NA' as CampaignName,
-          'NA' as CampaignStatus,
+          CAST('NA' as TEXT) as CampaignName,
+          CAST('NA' as TEXT) as CampaignStatus,
           0 as CampaignTabletBidModifier,
-          'NA' as CampaignTrialType,
+          CAST('NA' as TEXT) as CampaignTrialType,
           CURRENT_DATE as EndDate,
           false as EnhancedCpcEnabled,
           false as EnhancedCpvEnabled,
           false as IsBudgetExplicitlyShared,
-          'NA' as LabelIds,
-          'NA' as Labels,
-          'NA' as Period,
-          'NA' as ServingStatus,
+          CAST('NA' as TEXT) as LabelIds,
+          CAST('NA' as TEXT) as Labels,
+          CAST('NA' as TEXT) as Period,
+          CAST('NA' as TEXT) as ServingStatus,
           CURRENT_DATE as StartDate,
-          'NA' as TrackingUrlTemplate,
-          'NA' as UrlCustomParameters
+          CAST('NA' as TEXT) as TrackingUrlTemplate,
+          CAST('NA' as TEXT) as UrlCustomParameters
         ;;
   }
 
@@ -163,13 +163,13 @@ view: campaign_adapter {
   dimension: campaign_status {
     hidden: yes
     type: string
-    sql: REPLACE(${campaign_status_raw}, "Status_", "") ;;
+    sql: REPLACE(${campaign_status_raw}, 'Status_', '') ;;
   }
 
   dimension: status_active {
     hidden: yes
     type: yesno
-    sql: ${campaign_status} = "Active" ;;
+    sql: ${campaign_status} = 'Active' ;;
   }
 
   dimension: campaign_tablet_bid_modifier {
@@ -244,7 +244,7 @@ view: campaign_adapter {
   dimension: serving_status {
     hidden: yes
     type: string
-    sql: REPLACE(${serving_status_raw}, "CAMPAIGN_SYSTEM_SERVING_STATUS_", "") ;;
+    sql: REPLACE(${serving_status_raw}, 'CAMPAIGN_SYSTEM_SERVING_STATUS_', '') ;;
   }
 
   dimension_group: start {

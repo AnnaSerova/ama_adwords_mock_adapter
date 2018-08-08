@@ -54,45 +54,52 @@ view: ad_adapter {
       SELECT
         CURRENT_DATE as _DATA_DATE,
         CURRENT_DATE as _LATEST_DATE,
-        'NA' as ExternalCustomerId,
-        'NA' as AdGroupAdDisapprovalReasons,
+        CAST('NA' as TEXT) as ExternalCustomerId,
+        CAST('NA' as TEXT) as AdGroupAdDisapprovalReasons,
         false as AdGroupAdTrademarkDisapproved,
-        'NA' as AdGroupId,
-        'NA' as AdType,
-        'NA' as BusinessName,
-        'NA' as CallOnlyPhoneNumber,
-        'NA' as CampaignId,
-        'NA' as CreativeApprovalStatus,
-        'NA' as CreativeDestinationUrl,
-        'NA' as CreativeFinalAppUrls,
-        'NA' as CreativeFinalMobileUrls,
-        'NA' as CreativeFinalUrls,
-        'NA' as CreativeId,
-        'NA' as CreativeTrackingUrlTemplate,
-        'NA' as CreativeUrlCustomParameters,
-        'NA' as Description,
-        'NA' as Description1,
-        'NA' as Description2,
-        'NA' as DevicePreference,
-        'NA' as DisplayUrl,
-        'NA' as EnhancedDisplayCreativeLogoImageMediaId,
-        'NA' as EnhancedDisplayCreativeMarketingImageMediaId,
-        'NA' as Headline,
-        'NA' as HeadlinePart1,
-        'NA' as HeadlinePart2,
-        'NA' as ImageAdUrl,
-        'NA' as ImageCreativeImageHeight,
-        'NA' as ImageCreativeImageWidth,
-        'NA' as ImageCreativeName,
-        'NA' as LabelIds,
-        'NA' as Labels,
-        'NA' as LongHeadline,
-        'NA' as Path1,
-        'NA' as Path2,
-        'NA' as ShortHeadline,
-        'NA' as Status,
-        'NA' as Trademarks
+        CAST('NA' as TEXT) as AdGroupId,
+        CAST('NA' as TEXT) as AdType,
+        CAST('NA' as TEXT) as BusinessName,
+        CAST('NA' as TEXT) as CallOnlyPhoneNumber,
+        CAST('NA' as TEXT) as CampaignId,
+        CAST('NA' as TEXT) as CreativeApprovalStatus,
+        CAST('NA' as TEXT) as CreativeDestinationUrl,
+        CAST('NA' as TEXT) as CreativeFinalAppUrls,
+        CAST('NA' as TEXT) as CreativeFinalMobileUrls,
+        CAST('NA' as TEXT) as CreativeFinalUrls,
+        CAST('NA' as TEXT) as CreativeId,
+        CAST('NA' as TEXT) as CreativeTrackingUrlTemplate,
+        CAST('NA' as TEXT) as CreativeUrlCustomParameters,
+        CAST('NA' as TEXT) as Description,
+        CAST('NA' as TEXT) as Description1,
+        CAST('NA' as TEXT) as Description2,
+        CAST('NA' as TEXT) as DevicePreference,
+        CAST('NA' as TEXT) as DisplayUrl,
+        CAST('NA' as TEXT) as EnhancedDisplayCreativeLogoImageMediaId,
+        CAST('NA' as TEXT) as EnhancedDisplayCreativeMarketingImageMediaId,
+        CAST('NA' as TEXT) as Headline,
+        CAST('NA' as TEXT) as HeadlinePart1,
+        CAST('NA' as TEXT) as HeadlinePart2,
+        CAST('NA' as TEXT) as ImageAdUrl,
+        CAST('NA' as TEXT) as ImageCreativeImageHeight,
+        CAST('NA' as TEXT) as ImageCreativeImageWidth,
+        CAST('NA' as TEXT) as ImageCreativeName,
+        CAST('NA' as TEXT) as LabelIds,
+        CAST('NA' as TEXT) as Labels,
+        CAST('NA' as TEXT) as LongHeadline,
+        CAST('NA' as TEXT) as Path1,
+        CAST('NA' as TEXT) as Path2,
+        CAST('NA' as TEXT) as ShortHeadline,
+        CAST('NA' as TEXT) as Status,
+        CAST('NA' as TEXT) as Trademarks
       ;;
+  }
+  dimension: data_date {
+    type: date
+    sql: ${TABLE}._DATA_DATE ;;
+  }
+  dimension: external_customer_id {
+    hidden: no
   }
 
   dimension: ad_group_ad_disapproval_reasons {
@@ -139,8 +146,8 @@ view: ad_adapter {
 
   dimension: creative_approval_status {
     type: string
-    sql: REPLACE(${creative_approval_status_raw}, "ApprovalStatus_", "") ;;
-#     expression: replace(${creative_approval_status_raw}, "ApprovalStatus_", "") ;;
+    sql: REPLACE(${creative_approval_status_raw}, 'ApprovalStatus_', '') ;;
+#     expression: replace(${creative_approval_status_raw}, 'ApprovalStatus_', '') ;;
   }
 
   dimension: creative_destination_url {
@@ -171,13 +178,13 @@ view: ad_adapter {
   dimension: creative_final_urls_clean {
     hidden: yes
     type: string
-    sql: REGEXP_EXTRACT(${creative_final_urls}, r'\"([^\"]*)\"') ;;
+    sql: REGEXP_SUBSTR(${creative_final_urls}, '\"([^\"]*)\"') ;;
   }
 
   dimension: creative_final_urls_domain_path {
     label: "Creative Final Urls"
     type: string
-    sql: SUBSTR(REGEXP_EXTRACT(${creative_final_urls_clean}, r'^https?://(.*)\?'), 0, 50) ;;
+    sql: SUBSTR(REGEXP_SUBSTR(${creative_final_urls_clean}, '^https?://(.*)\?'), 0, 50) ;;
     link: {
       url: "{{ creative_final_urls_clean }}"
       label: "Landing Page"
@@ -323,13 +330,13 @@ view: ad_adapter {
   dimension: status {
     hidden: yes
     type: string
-    sql: REPLACE(${status_raw}, "Status_", "") ;;
-    # expression: replace(${status_raw}, "Status_", "") ;;
+    sql: REPLACE(${status_raw}, 'Status_', '') ;;
+    # expression: replace(${status_raw}, 'Status_', '') ;;
   }
 
   dimension: status_active {
     type: yesno
-    sql: ${status} = "Enabled" ;;
+    sql: ${status} = 'Enabled' ;;
   }
 
   dimension: trademarks {
@@ -339,10 +346,13 @@ view: ad_adapter {
 
   dimension: creative {
     type: string
-    sql: SUBSTR(CONCAT(
-      COALESCE(CONCAT(${headline}, "\n"),"")
-      , COALESCE(CONCAT(${headline_part1}, "\n"),"")
-      , COALESCE(CONCAT(${headline_part2}, "\n"),"")
+    sql: SUBSTR(
+      CONCAT(
+        CONCAT(
+          COALESCE(CONCAT(${headline}, '\n'),''),
+          COALESCE(CONCAT(${headline_part1}, '\n'),'')
+        ),
+        COALESCE(CONCAT(${headline_part2}, '\n'),'')
       ), 0, 50) ;;
     link: {
       url: "https://adwords.google.com/aw/ads?campaignId={{ campaign_id._value }}&adGroupId={{ ad_group_id._value }}"
@@ -361,7 +371,7 @@ view: ad_adapter {
   dimension: display_headline {
     type: string
     sql: CONCAT(
-      COALESCE(CONCAT(${headline}, "\n"),"")
-      , COALESCE(CONCAT(${headline_part1}, "\n"),"")) ;;
+      COALESCE(CONCAT(${headline}, '\n'),'')
+      , COALESCE(CONCAT(${headline_part1}, '\n'),'')) ;;
   }
 }

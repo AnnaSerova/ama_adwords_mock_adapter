@@ -27,15 +27,15 @@ view: customer_adapter {
         SELECT
           CURRENT_DATE as _DATA_DATE,
           CURRENT_DATE as _LATEST_DATE,
-          'NA' as ExternalCustomerId,
-        'NA' as AccountCurrencyCode,
-        'NA' as AccountDescriptiveName,
-        'NA' as AccountTimeZoneId,
+          CAST('NA' as TEXT) as ExternalCustomerId,
+        CAST('NA' as TEXT) as AccountCurrencyCode,
+        CAST('NA' as TEXT) as AccountDescriptiveName,
+        CAST('NA' as TEXT) as AccountTimeZoneId,
         false as CanManageClients,
-        'NA' as CustomerDescriptiveName,
+        CAST('NA' as TEXT) as CustomerDescriptiveName,
         false as IsAutoTaggingEnabled,
         false as IsTestAccount,
-        'NA' as PrimaryCompanyName
+        CAST('NA' as TEXT) as PrimaryCompanyName
       ;;
   }
 

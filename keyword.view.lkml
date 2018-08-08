@@ -56,43 +56,43 @@ view: keyword_adapter {
         SELECT
           CURRENT_DATE as _DATA_DATE,
           CURRENT_DATE as _LATEST_DATE,
-          'NA' as ExternalCustomerId,
-          'NA' as AdGroupId,
-          'NA' as ApprovalStatus,
-          'NA' as BidType,
-          'NA' as BiddingStrategyId,
-          'NA' as BiddingStrategyName,
-          'NA' as BiddingStrategySource,
-          'NA' as BiddingStrategyType,
-          'NA' as CampaignId,
+          CAST('NA' as TEXT) as ExternalCustomerId,
+          CAST('NA' as TEXT) as AdGroupId,
+          CAST('NA' as TEXT) as ApprovalStatus,
+          CAST('NA' as TEXT) as BidType,
+          CAST('NA' as TEXT) as BiddingStrategyId,
+          CAST('NA' as TEXT) as BiddingStrategyName,
+          CAST('NA' as TEXT) as BiddingStrategySource,
+          CAST('NA' as TEXT) as BiddingStrategyType,
+          CAST('NA' as TEXT) as CampaignId,
           0 as CpcBid,
-          'NA' as CpcBidSource,
+          CAST('NA' as TEXT) as CpcBidSource,
           0 as CpmBid,
-          'NA' as CreativeQualityScore,
-          'NA' as Criteria,
-          'NA' as CriteriaDestinationUrl,
-          'NA' as CriterionId,
+          CAST('NA' as TEXT) as CreativeQualityScore,
+          CAST('NA' as TEXT) as Criteria,
+          CAST('NA' as TEXT) as CriteriaDestinationUrl,
+          CAST('NA' as TEXT) as CriterionId,
           false as EnhancedCpcEnabled,
           0 as EstimatedAddClicksAtFirstPositionCpc,
           0 as EstimatedAddCostAtFirstPositionCpc,
-          'NA' as FinalAppUrls,
-          'NA' as FinalMobileUrls,
-          'NA' as FinalUrls,
-          'NA' as FirstPageCpc,
-          'NA' as FirstPositionCpc,
+          CAST('NA' as TEXT) as FinalAppUrls,
+          CAST('NA' as TEXT) as FinalMobileUrls,
+          CAST('NA' as TEXT) as FinalUrls,
+          CAST('NA' as TEXT) as FirstPageCpc,
+          CAST('NA' as TEXT) as FirstPositionCpc,
           false as HasQualityScore,
           false as IsNegative,
-          'NA' as KeywordMatchType,
-          'NA' as LabelIds,
-          'NA' as Labels,
-          'NA' as PostClickQualityScore,
+          CAST('NA' as TEXT) as KeywordMatchType,
+          CAST('NA' as TEXT) as LabelIds,
+          CAST('NA' as TEXT) as Labels,
+          CAST('NA' as TEXT) as PostClickQualityScore,
           0 as QualityScore,
-          'NA' as SearchPredictedCtr,
-          'NA' as Status,
-          'NA' as SystemServingStatus,
-          'NA' as TopOfPageCpc,
-          'NA' as TrackingUrlTemplate,
-          'NA' as UrlCustomParameters
+          CAST('NA' as TEXT) as SearchPredictedCtr,
+          CAST('NA' as TEXT) as Status,
+          CAST('NA' as TEXT) as SystemServingStatus,
+          CAST('NA' as TEXT) as TopOfPageCpc,
+          CAST('NA' as TEXT) as TrackingUrlTemplate,
+          CAST('NA' as TEXT) as UrlCustomParameters
       ;;
   }
 
@@ -195,7 +195,13 @@ view: keyword_adapter {
 
   dimension: campaign_ad_group_keyword_combination {
     type: string
-    sql: CONCAT(${campaign.name}, "_", ${ad_group.ad_group_name}, "_", ${keyword.criteria}) ;;
+    sql: CONCAT(
+        CONCAT(
+          CONCAT(${campaign.name}, '_'),
+          ${ad_group.ad_group_name}
+        ),
+        CONCAT('_', ${keyword.criteria})
+      ) ;;
   }
 
   dimension: criteria_destination_url {
@@ -307,12 +313,12 @@ view: keyword_adapter {
   dimension: status {
     hidden: yes
     type: string
-    sql: REPLACE(${status_raw}, "Status_", "") ;;
+    sql: REPLACE(${status_raw}, 'Status_', '') ;;
   }
 
   dimension: status_active {
     type: yesno
-    sql: ${status} = "Active" ;;
+    sql: ${status} = 'Active' ;;
   }
 
   dimension: system_serving_status_raw {
@@ -323,7 +329,7 @@ view: keyword_adapter {
 
   dimension: system_serving_status {
     type: string
-    sql: REPLACE(${system_serving_status_raw}, "CRITERIA_SYSTEM_SERVING_STATUS_", "") ;;
+    sql: REPLACE(${system_serving_status_raw}, 'CRITERIA_SYSTEM_SERVING_STATUS_', '') ;;
   }
 
   dimension: top_of_page_cpc {

@@ -79,28 +79,28 @@ view: ad_impressions_adapter {
         SELECT
           CURRENT_DATE as _DATA_DATE,
           CURRENT_DATE as _LATEST_DATE,
-          'NA' as ExternalCustomerId,
+          CAST('NA' as TEXT) as ExternalCustomerId,
           0 as AveragePosition,
           0 as ActiveViewImpressions,
           0 as ActiveViewMeasurability,
           0 as ActiveViewMeasurableCost,
           0 as ActiveViewMeasurableImpressions,
           0 as ActiveViewViewability,
-          'NA' as AdNetworkType1,
-          'NA' as AdNetworkType2,
+          CAST('NA' as TEXT) as AdNetworkType1,
+          CAST('NA' as TEXT) as AdNetworkType2,
           0 as clicks,
           0 as conversions,
           0 as conversionvalue,
           0 as cost,
-          'NA' as Device,
+          CAST('NA' as TEXT) as Device,
           0 as impressions,
           0 as Interactions,
-          'NA' as InteractionTypes,
-          'NA' as Slot,
+          CAST('NA' as TEXT) as InteractionTypes,
+          CAST('NA' as TEXT) as Slot,
           0 as ViewThroughConversions,
-          'NA' as CampaignId,
-          'NA' as AdGroupId,
-          'NA' as CriterionId
+          CAST('NA' as TEXT) as CampaignId,
+          CAST('NA' as TEXT) as AdGroupId,
+          CAST('NA' as TEXT) as CriterionId
         ;;
   }
 
@@ -228,29 +228,29 @@ view: ad_impressions_hour_adapter {
         SELECT
           CURRENT_DATE as _DATA_DATE,
           CURRENT_DATE as _LATEST_DATE,
-          'NA' as ExternalCustomerId,
+          CAST('NA' as TEXT) as ExternalCustomerId,
           0 as AveragePosition,
           0 as ActiveViewImpressions,
           0 as ActiveViewMeasurability,
           0 as ActiveViewMeasurableCost,
           0 as ActiveViewMeasurableImpressions,
           0 as ActiveViewViewability,
-          'NA' as AdNetworkType1,
-          'NA' as AdNetworkType2,
+          CAST('NA' as TEXT) as AdNetworkType1,
+          CAST('NA' as TEXT) as AdNetworkType2,
           0 as clicks,
           0 as conversions,
           0 as conversionvalue,
           0 as cost,
-          'NA' as Device,
+          CAST('NA' as TEXT) as Device,
           0 as impressions,
           0 as Interactions,
-          'NA' as InteractionTypes,
-          'NA' as Slot,
+          CAST('NA' as TEXT) as InteractionTypes,
+          CAST('NA' as TEXT) as Slot,
           0 as ViewThroughConversions,
           0 as HourOfDay,
-          'NA' as CampaignId,
-          'NA' as AdGroupId,
-          'NA' as CriterionId
+          CAST('NA' as TEXT) as CampaignId,
+          CAST('NA' as TEXT) as AdGroupId,
+          CAST('NA' as TEXT) as CriterionId
         ;;
   }
 }
@@ -269,29 +269,29 @@ view: ad_impressions_campaign_adapter {
       SELECT
         CURRENT_DATE as _DATA_DATE,
         CURRENT_DATE as _LATEST_DATE,
-        'NA' as ExternalCustomerId,
+        CAST('NA' as TEXT) as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
         0 as ActiveViewMeasurability,
         0 as ActiveViewMeasurableCost,
         0 as ActiveViewMeasurableImpressions,
         0 as ActiveViewViewability,
-        'NA' as AdNetworkType1,
-        'NA' as AdNetworkType2,
+        CAST('NA' as TEXT) as AdNetworkType1,
+        CAST('NA' as TEXT) as AdNetworkType2,
         0 as clicks,
         0 as conversions,
         0 as conversionvalue,
         0 as cost,
-        'NA' as Device,
+        CAST('NA' as TEXT) as Device,
         0 as impressions,
         0 as Interactions,
-        'NA' as InteractionTypes,
-        'NA' as Slot,
+        CAST('NA' as TEXT) as InteractionTypes,
+        CAST('NA' as TEXT) as Slot,
         0 as ViewThroughConversions,
-        'NA' as BaseCampaignId,
-        'NA' as CampaignId,
-        'NA' as AdGroupId,
-        'NA' as CriterionId
+        CAST('NA' as TEXT) as BaseCampaignId,
+        CAST('NA' as TEXT) as CampaignId,
+        CAST('NA' as TEXT) as AdGroupId,
+        CAST('NA' as TEXT) as CriterionId
       ;;
   }
 
@@ -307,7 +307,7 @@ view: ad_impressions_campaign_adapter {
 
   dimension: campaign_id_string {
     hidden: yes
-    sql: CAST(${campaign_id} as STRING) ;;
+    sql: CAST(${campaign_id} as TEXT) ;;
   }
 }
 
@@ -326,30 +326,30 @@ view: ad_impressions_campaign_hour_adapter {
       SELECT
         CURRENT_DATE as _DATA_DATE,
         CURRENT_DATE as _LATEST_DATE,
-        'NA' as ExternalCustomerId,
+        CAST('NA' as TEXT) as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
         0 as ActiveViewMeasurability,
         0 as ActiveViewMeasurableCost,
         0 as ActiveViewMeasurableImpressions,
         0 as ActiveViewViewability,
-        'NA' as AdNetworkType1,
-        'NA' as AdNetworkType2,
+        CAST('NA' as TEXT) as AdNetworkType1,
+        CAST('NA' as TEXT) as AdNetworkType2,
         0 as clicks,
         0 as conversions,
         0 as conversionvalue,
         0 as cost,
-        'NA' as Device,
+        CAST('NA' as TEXT) as Device,
         0 as impressions,
         0 as Interactions,
-        'NA' as InteractionTypes,
-        'NA' as Slot,
+        CAST('NA' as TEXT) as InteractionTypes,
+        CAST('NA' as TEXT) as Slot,
         0 as ViewThroughConversions,
-        'NA' as BaseCampaignId,
-        'NA' as CampaignId,
+        CAST('NA' as TEXT) as BaseCampaignId,
+        CAST('NA' as TEXT) as CampaignId,
         0 as HourOfDay,
-        'NA' as AdGroupId,
-        'NA' as CriterionId
+        CAST('NA' as TEXT) as AdGroupId,
+        CAST('NA' as TEXT) as CriterionId
       ;;
   }
 }
@@ -369,29 +369,29 @@ view: ad_impressions_ad_group_adapter {
       SELECT
         CURRENT_DATE as _DATA_DATE,
         CURRENT_DATE as _LATEST_DATE,
-        'NA' as ExternalCustomerId,
+        CAST('NA' as TEXT) as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
         0 as ActiveViewMeasurability,
         0 as ActiveViewMeasurableCost,
         0 as ActiveViewMeasurableImpressions,
         0 as ActiveViewViewability,
-        'NA' as AdNetworkType1,
-        'NA' as AdNetworkType2,
+        CAST('NA' as TEXT) as AdNetworkType1,
+        CAST('NA' as TEXT) as AdNetworkType2,
         0 as clicks,
         0 as conversions,
         0 as conversionvalue,
         0 as cost,
-        'NA' as Device,
+        CAST('NA' as TEXT) as Device,
         0 as impressions,
         0 as Interactions,
-        'NA' as InteractionTypes,
-        'NA' as Slot,
+        CAST('NA' as TEXT) as InteractionTypes,
+        CAST('NA' as TEXT) as Slot,
         0 as ViewThroughConversions,
-        'NA' as AdGroupId,
-        'NA' as BaseAdGroupId,
-        'NA' as CampaignId,
-        'NA' as CriterionId
+        CAST('NA' as TEXT) as AdGroupId,
+        CAST('NA' as TEXT) as BaseAdGroupId,
+        CAST('NA' as TEXT) as CampaignId,
+        CAST('NA' as TEXT) as CriterionId
       ;;
   }
 
@@ -402,7 +402,7 @@ view: ad_impressions_ad_group_adapter {
 
   dimension: ad_group_id_string {
     hidden: yes
-    sql: CAST(${ad_group_id} as STRING) ;;
+    sql: CAST(${ad_group_id} as TEXT) ;;
   }
 
   dimension: base_ad_group_id {
@@ -426,30 +426,30 @@ view: ad_impressions_ad_group_hour_adapter {
       SELECT
         CURRENT_DATE as _DATA_DATE,
         CURRENT_DATE as _LATEST_DATE,
-        'NA' as ExternalCustomerId,
+        CAST('NA' as TEXT) as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
         0 as ActiveViewMeasurability,
         0 as ActiveViewMeasurableCost,
         0 as ActiveViewMeasurableImpressions,
         0 as ActiveViewViewability,
-        'NA' as AdNetworkType1,
-        'NA' as AdNetworkType2,
+        CAST('NA' as TEXT) as AdNetworkType1,
+        CAST('NA' as TEXT) as AdNetworkType2,
         0 as clicks,
         0 as conversions,
         0 as conversionvalue,
         0 as cost,
-        'NA' as Device,
+        CAST('NA' as TEXT) as Device,
         0 as impressions,
         0 as Interactions,
-        'NA' as InteractionTypes,
-        'NA' as Slot,
+        CAST('NA' as TEXT) as InteractionTypes,
+        CAST('NA' as TEXT) as Slot,
         0 as ViewThroughConversions,
-        'NA' as AdGroupId,
-        'NA' as BaseAdGroupId,
+        CAST('NA' as TEXT) as AdGroupId,
+        CAST('NA' as TEXT) as BaseAdGroupId,
         0 as HourOfDay,
-        'NA' as CampaignId,
-        'NA' as CriterionId
+        CAST('NA' as TEXT) as CampaignId,
+        CAST('NA' as TEXT) as CriterionId
       ;;
   }
 }
@@ -469,28 +469,28 @@ view: ad_impressions_keyword_adapter {
       SELECT
         CURRENT_DATE as _DATA_DATE,
         CURRENT_DATE as _LATEST_DATE,
-        'NA' as ExternalCustomerId,
+        CAST('NA' as TEXT) as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
         0 as ActiveViewMeasurability,
         0 as ActiveViewMeasurableCost,
         0 as ActiveViewMeasurableImpressions,
         0 as ActiveViewViewability,
-        'NA' as AdNetworkType1,
-        'NA' as AdNetworkType2,
+        CAST('NA' as TEXT) as AdNetworkType1,
+        CAST('NA' as TEXT) as AdNetworkType2,
         0 as clicks,
         0 as conversions,
         0 as conversionvalue,
         0 as cost,
-        'NA' as Device,
+        CAST('NA' as TEXT) as Device,
         0 as impressions,
         0 as Interactions,
-        'NA' as InteractionTypes,
-        'NA' as Slot,
+        CAST('NA' as TEXT) as InteractionTypes,
+        CAST('NA' as TEXT) as Slot,
         0 as ViewThroughConversions,,
-        'NA' as AdGroupId,
-        'NA' as BaseAdGroupId,
-        'NA' as CriterionId
+        CAST('NA' as TEXT) as AdGroupId,
+        CAST('NA' as TEXT) as BaseAdGroupId,
+        CAST('NA' as TEXT) as CriterionId
       ;;
   }
 
@@ -501,7 +501,7 @@ view: ad_impressions_keyword_adapter {
 
   dimension: criterion_id_string {
     hidden: yes
-    sql: CAST(${criterion_id} as STRING) ;;
+    sql: CAST(${criterion_id} as TEXT) ;;
   }
 }
 
@@ -520,29 +520,29 @@ view: ad_impressions_ad_adapter {
       SELECT
         CURRENT_DATE as _DATA_DATE,
         CURRENT_DATE as _LATEST_DATE,
-        'NA' as ExternalCustomerId,
+        CAST('NA' as TEXT) as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
         0 as ActiveViewMeasurability,
         0 as ActiveViewMeasurableCost,
         0 as ActiveViewMeasurableImpressions,
         0 as ActiveViewViewability,
-        'NA' as AdNetworkType1,
-        'NA' as AdNetworkType2,
+        CAST('NA' as TEXT) as AdNetworkType1,
+        CAST('NA' as TEXT) as AdNetworkType2,
         0 as clicks,
         0 as conversions,
         0 as conversionvalue,
         0 as cost,
-        'NA' as Device,
+        CAST('NA' as TEXT) as Device,
         0 as impressions,
         0 as Interactions,
-        'NA' as InteractionTypes,
-        'NA' as Slot,
+        CAST('NA' as TEXT) as InteractionTypes,
+        CAST('NA' as TEXT) as Slot,
         0 as ViewThroughConversions,
-        'NA' as CreativeId,
-        'NA' as CampaignId,
-        'NA' as AdGroupId,
-        'NA' as CriterionId
+        CAST('NA' as TEXT) as CreativeId,
+        CAST('NA' as TEXT) as CampaignId,
+        CAST('NA' as TEXT) as AdGroupId,
+        CAST('NA' as TEXT) as CriterionId
       ;;
   }
 
@@ -553,7 +553,7 @@ view: ad_impressions_ad_adapter {
 
   dimension: creative_id_string {
     hidden: yes
-    sql: CAST(${creative_id} as STRING) ;;
+    sql: CAST(${creative_id} as TEXT) ;;
   }
 }
 
@@ -671,32 +671,32 @@ view: ad_impressions_video_adapter {
       SELECT
         CURRENT_DATE as _DATA_DATE,
         CURRENT_DATE as _LATEST_DATE,
-        'NA' as ExternalCustomerId,
+        CAST('NA' as TEXT) as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
         0 as ActiveViewMeasurability,
         0 as ActiveViewMeasurableCost,
         0 as ActiveViewMeasurableImpressions,
         0 as ActiveViewViewability,
-        'NA' as AdNetworkType1,
-        'NA' as AdNetworkType2,
+        CAST('NA' as TEXT) as AdNetworkType1,
+        CAST('NA' as TEXT) as AdNetworkType2,
         0 as clicks,
         0 as conversions,
         0 as conversionvalue,
         0 as cost,
-        'NA' as Device,
+        CAST('NA' as TEXT) as Device,
         0 as impressions,
         0 as Interactions,
-        'NA' as InteractionTypes,
-        'NA' as Slot,
+        CAST('NA' as TEXT) as InteractionTypes,
+        CAST('NA' as TEXT) as Slot,
         0 as ViewThroughConversions,
-        'NA' as AdGroupId,
-        'NA' as CampaignId,
-        'NA' as CreativeId,
-        'NA' as CreativeStatus,
-        'NA' as Device,
-        'NA' as VideoId,
-        'NA' as VideoChannelId
+        CAST('NA' as TEXT) as AdGroupId,
+        CAST('NA' as TEXT) as CampaignId,
+        CAST('NA' as TEXT) as CreativeId,
+        CAST('NA' as TEXT) as CreativeStatus,
+        CAST('NA' as TEXT) as Device,
+        CAST('NA' as TEXT) as VideoId,
+        CAST('NA' as TEXT) as VideoChannelId
       ;;
   }
 
@@ -707,7 +707,7 @@ view: ad_impressions_video_adapter {
 
   dimension: ad_group_id_string {
     hidden: yes
-    sql: CAST(${ad_group_id} as STRING) ;;
+    sql: CAST(${ad_group_id} as TEXT) ;;
   }
 
   dimension: ad_network_type1 {
@@ -729,7 +729,7 @@ view: ad_impressions_video_adapter {
 
   dimension: campaign_id_string {
     hidden: yes
-    sql: CAST(${campaign_id} as STRING) ;;
+    sql: CAST(${campaign_id} as TEXT) ;;
   }
 
   dimension: clicks {
@@ -763,7 +763,7 @@ view: ad_impressions_video_adapter {
 
   dimension: creative_id_string {
     hidden: yes
-    sql: CAST(${creative_id} as STRING) ;;
+    sql: CAST(${creative_id} as TEXT) ;;
   }
 
   dimension: creative_status {
@@ -878,33 +878,33 @@ view: ad_impressions_geo_adapter {
       SELECT
         CURRENT_DATE as _DATA_DATE,
         CURRENT_DATE as _LATEST_DATE,
-        'NA' as ExternalCustomerId,
+        CAST('NA' as TEXT) as ExternalCustomerId,
         0 as AveragePosition,
         0 as ActiveViewImpressions,
         0 as ActiveViewMeasurability,
         0 as ActiveViewMeasurableCost,
         0 as ActiveViewMeasurableImpressions,
         0 as ActiveViewViewability,
-        'NA' as AdNetworkType1,
-        'NA' as AdNetworkType2,
+        CAST('NA' as TEXT) as AdNetworkType1,
+        CAST('NA' as TEXT) as AdNetworkType2,
         0 as clicks,
         0 as conversions,
         0 as conversionvalue,
         0 as cost,
-        'NA' as Device,
+        CAST('NA' as TEXT) as Device,
         0 as impressions,
         0 as Interactions,
-        'NA' as InteractionTypes,
-        'NA' as Slot,
+        CAST('NA' as TEXT) as InteractionTypes,
+        CAST('NA' as TEXT) as Slot,
         0 as ViewThroughConversions,
-        'NA' as CityCriteriaId,
-        'NA' as CountryCriteriaId,
-        'NA' as MetroCriteriaId,
-        'NA' as MostSpecificCriteriaId,
-        'NA' as RegionCriteriaId,
-        'NA' as CampaignId,
-        'NA' as AdGroupId,
-        'NA' as CriterionId
+        CAST('NA' as TEXT) as CityCriteriaId,
+        CAST('NA' as TEXT) as CountryCriteriaId,
+        CAST('NA' as TEXT) as MetroCriteriaId,
+        CAST('NA' as TEXT) as MostSpecificCriteriaId,
+        CAST('NA' as TEXT) as RegionCriteriaId,
+        CAST('NA' as TEXT) as CampaignId,
+        CAST('NA' as TEXT) as AdGroupId,
+        CAST('NA' as TEXT) as CriterionId
       ;;
   }
 
