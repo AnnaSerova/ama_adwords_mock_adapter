@@ -487,7 +487,8 @@ view: ad_impressions_keyword_adapter {
         0 as Interactions,
         CAST('NA' as TEXT) as InteractionTypes,
         CAST('NA' as TEXT) as Slot,
-        0 as ViewThroughConversions,,
+        0 as ViewThroughConversions,
+        CAST('NA' as TEXT) as CampaignId,
         CAST('NA' as TEXT) as AdGroupId,
         CAST('NA' as TEXT) as BaseAdGroupId,
         CAST('NA' as TEXT) as CriterionId
